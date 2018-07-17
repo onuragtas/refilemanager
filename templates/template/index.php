@@ -52,7 +52,7 @@
                         <div class="mm-content">
                             <div class="upload-widget animated fadeIn">
                                 <div class="upload-drop-zone">
-                                    
+                                    <input type="text" name="folder" style="width:300px" placeholder="" id="foldername" /><input type="submit" value="Create" id="createFolder" />
                                 </div>
                             </div>
 
@@ -88,6 +88,9 @@
                                     </div>
                                     <?php }else{ ?>
                                     <div class="file animated fadeIn">
+                                        <div class="files-title">
+                                            <h3 style="margin: 0;font-size: 14px;"><a href="<?php echo $this->getUploadURL(); ?>removeFolder.php?path=<?php echo $path.$f ?>/">Sil</a></h3>
+                                        </div>
                                         <div class="file-preview">
                                             <a href="<?php echo $this->createURL($path.$f."/") ?>"><img src="templates/template/images/folder.png" class="thumb"></a>
                                         </div>
@@ -112,6 +115,21 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#createFolder").click(function(){
+                name = $("#foldername").val();
+                $.ajax({
+                    method: "post",
+                    url: "createFolder.php",
+                    data: "name="+name+"&path=<?php echo $path ?>",
+                    success: function(data){
+                        if(data == "true"){
+                            window.location.reload()
+                        }else{
+
+                        }
+                    }
+                })
+            })
             $(".select").click(function(){
                 id = $(this).attr("id")
                 <?php foreach($_GET['fields'] as $field): ?>

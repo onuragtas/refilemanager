@@ -7,7 +7,7 @@ class Functions extends config {
     }
     function checkPermission(){
         if(!isset($_SESSION['user'])){
-            header("location:http://google.com");
+            // header("location:http://google.com");
         }
     }
     function getList($path){
