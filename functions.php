@@ -32,11 +32,11 @@ class Functions extends config {
         return $path;
     }
 
-    function upload($file, $dir){
-        if(in_array($this->extension($file['name']), $this->config['music_ext']) || in_array($this->extension($file['name']), $this->config['video_ext']) || in_array($this->extension($file['name']), $this->config['image_ext']) || in_array($this->extension($file['name']),$this->config['application_ext']) || in_array($this->extension($file['name']),$this->config['document_ext'])){
+    function upload($name, $tmp_name, $dir){
+        if(in_array($this->extension($name), $this->config['music_ext']) || in_array($this->extension($name), $this->config['video_ext']) || in_array($this->extension($name), $this->config['image_ext']) || in_array($this->extension($name),$this->config['application_ext']) || in_array($this->extension($name),$this->config['document_ext'])){
             $time = time();
-            if(move_uploaded_file ($file['tmp_name'],$dir.$file['name'])){
-                return [$dir.$time.$this->extension($file['name']), true];
+            if(move_uploaded_file ($tmp_name,$dir.$name)){
+                return [$dir.$time.$this->extension($name), true];
             }
         }else{
             return [null, false];

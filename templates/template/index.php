@@ -46,7 +46,7 @@
                         </ol>
                         <form method="post" style="float:right;margin-top:-50px; width:330px;" enctype="multipart/form-data" class="animated fadeIn">
                                         
-                                        <input id="" style="float:left" type="file" name="files" multiple="multiple">
+                                        <input id="" style="float:left" type="file" name="upload[]" multiple="multiple">
                                         <input id="" style="float:left" type="submit" name="send" value="Gönder">
                                     </form>
                         <div class="mm-content">

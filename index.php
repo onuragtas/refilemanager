@@ -23,14 +23,21 @@ class Page extends Functions{
         }
 
         if($_POST){
-            $file = $_FILES['files'];
-            $up = $this->upload($file, $path);
-            if($up[1]){
-                header("location:".$this->createURL());
-            }else{
+            $res = false;
+            $total = count($_FILES['upload']['name']);
+            for( $i=0 ; $i < $total ; $i++ ) {
+                $name = $_FILES['upload']['name'][$i];
+                $tmp_name = $_FILES['upload']['tmp_name'][$i];
+                if ($name != ""){;
+                  if($this->upload($name, $tmp_name, $path)) {
+                      $res = true;
+                  }
+                }
+              }
+              if(!$res){
                 $_SESSION['error'] = "Error";
-                header("location:".$this->createURL());
-            }
+              }
+            //   header("location:".$this->createURL());
         }
 
         include "templates/".$this->config['template']."/index.php";
