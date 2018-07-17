@@ -37,7 +37,7 @@ class Page extends Functions{
               if(!$res){
                 $_SESSION['error'] = "Error";
               }
-            //   header("location:".$this->createURL());
+              header("location:".$this->createURL());
         }
 
         include "templates/".$this->config['template']."/index.php";
