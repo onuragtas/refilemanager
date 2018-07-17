@@ -35,7 +35,7 @@ class Functions extends config {
     function upload($file, $dir){
         if(in_array($this->extension($file['name']), $this->config['music_ext']) || in_array($this->extension($file['name']), $this->config['video_ext']) || in_array($this->extension($file['name']), $this->config['image_ext']) || in_array($this->extension($file['name']),$this->config['application_ext']) || in_array($this->extension($file['name']),$this->config['document_ext'])){
             $time = time();
-            if(move_uploaded_file ($file['tmp_name'],$dir.$time.$this->extension($file['name']))){
+            if(move_uploaded_file ($file['tmp_name'],$dir.$file['name'])){
                 return [$dir.$time.$this->extension($file['name']), true];
             }
         }else{
