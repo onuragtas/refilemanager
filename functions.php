@@ -1,7 +1,15 @@
 <?php
 include "config.php";
 class Functions extends config {
-
+    function __construct(){
+        parent::__construct();
+        $this->checkPermission();
+    }
+    function checkPermission(){
+        if(isset($_SESSION['user'])){
+            header("location:http://google.com");
+        }
+    }
     function getList($path){
         $files = array_diff(scandir($path), array('.', '..','.htaccess',".ckfinder",'.thumbs'));
         return $files;
