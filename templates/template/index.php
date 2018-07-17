@@ -116,7 +116,11 @@
                 id = $(this).attr("id")
                 <?php foreach($_GET['fields'] as $field): ?>
                 <?php $exp = explode("||", $field); ?>
+                <?php if($exp[1] == "href" || $exp[1] == "src"){ ?>
+                $(window.opener.document).find("#<?php echo $exp[0] ?>").attr("<?php echo $exp[1] ?>","<?php echo $this->getUploadURL(); ?>"+$.trim(id))
+                <?php }else{ ?>
                 $(window.opener.document).find("#<?php echo $exp[0] ?>").attr("<?php echo $exp[1] ?>",$.trim(id))
+                <?php } ?>
                 <?php endforeach ?>
                 window.close();
             })

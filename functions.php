@@ -48,6 +48,13 @@ class Functions extends config {
         return $ext;
     }
 
+    function getUploadURL(){
+        $exp = explode('/', $_SERVER['REQUEST_URI']);
+        $p = str_replace(end($exp),"",$_SERVER['REQUEST_URI']);
+        $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]/";
+        return $url;
+    }
+
     function createURL($path = null, $delete = null){
         $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
         $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$uri_parts[0]?";
