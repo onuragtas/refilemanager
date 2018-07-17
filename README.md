@@ -1,3 +1,5 @@
+![screenshot](html/uploads/image.png)
+
 How to use
 
 ```
