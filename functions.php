@@ -6,7 +6,7 @@ class Functions extends config {
         $this->checkPermission();
     }
     function checkPermission(){
-        if(isset($_SESSION['user'])){
+        if(!isset($_SESSION['user'])){
             header("location:http://google.com");
         }
     }
