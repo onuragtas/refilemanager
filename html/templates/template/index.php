@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/mm.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/toastr.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="templates/template/css/mm.min.css">
+    <link rel="stylesheet" href="templates/template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="templates/template/css/font-awesome.min.css">
+    <link rel="stylesheet" href="templates/template/css/toastr.min.css">
+    <link rel="stylesheet" href="templates/template/css/style.css">
 </head>
 
 <body>
@@ -61,7 +61,7 @@
                                     <div class="file file-no-title animated fadeIn">
                                         <div class="file-preview">
                                             <div class="icon">
-                                                <a href="<?php echo $this->createURL($this->backURL($path)) ?>"><img src="images/back.png" /></a>
+                                                <a href="<?php echo $this->createURL($this->backURL($path)) ?>"><img src="templates/template/images/back.png" /></a>
                                             </div>
                                         </div>
                                     </div>
@@ -75,11 +75,11 @@
                                             <?php if(in_array($this->extension($path.$f),$this->config['image_ext'])): ?>
                                             <img style="width:132px; height:110px;" src="<?php echo $path.$f ?>" class="thumb">
                                             <?php elseif(in_array($this->extension($path.$f),$this->config['video_ext'])): ?>
-                                            <img style="width:132px; height:110px;" src="images/film.png" class="thumb">
+                                            <img style="width:132px; height:110px;" src="templates/template/images/film.png" class="thumb">
                                             <?php elseif(in_array($this->extension($path.$f),$this->config['music_ext'])): ?>
-                                            <img style="width:132px; height:110px;" src="images/muzik.png" class="thumb">
+                                            <img style="width:132px; height:110px;" src="templates/template/images/muzik.png" class="thumb">
                                             <?php elseif(in_array($this->extension($path.$f),$this->config['application_ext'])): ?>
-                                            <img style="width:132px; height:110px;" src="images/apk.png" class="thumb">
+                                            <img style="width:132px; height:110px;" src="templates/template/images/apk.png" class="thumb">
                                             <?php endif ?>
                                         </div>
                                         <div class="file-title select file-preview" id="<?php echo str_replace($this->config['path'],$this->config['return_path'], $path.$f) ?>">
@@ -89,7 +89,7 @@
                                     <?php }else{ ?>
                                     <div class="file animated fadeIn">
                                         <div class="file-preview">
-                                            <a href="<?php echo $this->createURL($path.$f."/") ?>"><img src="images/folder.png" class="thumb"></a>
+                                            <a href="<?php echo $this->createURL($path.$f."/") ?>"><img src="templates/template/images/folder.png" class="thumb"></a>
                                         </div>
                                         <div class="file-title">
                                             <h3><?php echo $f ?></h3>
@@ -106,9 +106,9 @@
             </div>
         </div>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/toastr.min.js"></script>
+    <script src="templates/template/js/jquery.min.js"></script>
+    <script src="templates/template/js/bootstrap.min.js"></script>
+    <script src="templates/template/js/toastr.min.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
